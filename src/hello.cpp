@@ -11,10 +11,6 @@ uint32_t g_MaxCharWidth;
 
 Viewport g_Viewport;
 
-// https://docs.platformio.org/en/stable/tutorials/espressif32/arduino_debugging_unit_testing.html#adding-code-to-the-generated-project
-
-// https://github.com/olikraus/u8g2/wiki/u8g2setupcpp#introduction
-
 void setup()
 {
     // serial
