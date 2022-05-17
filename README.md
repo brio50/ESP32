@@ -1,4 +1,4 @@
-# ESP32 Platform IO Development Environment
+# Heltec ESP32 Platform IO Development Environment
 
 - Forked from https://github.com/m1k0s/ESP32-HelloWorld3D
 - Assumes https://platformio.org/platformio-ide & VSCode installed
@@ -9,7 +9,7 @@
 1. Modify `platformio.ini`'s `src_filter` to execute the `*.cpp` of your choosing in the `/src` directory.
    - `./src/main.cpp` is the example provided by [m1k0s](https://github.com/m1k0s) @ [ESP32-HelloWorld3D](https://github.com/m1k0s/ESP32-HelloWorld3D)
    - `./src/hello.cpp` is a step backward, just a simple serial and display hello world to get my bearings.
-   - `./src/sht31d.cpp` is a step forward, temperature and humidity sensor with displayed output.
+   - `./src/sht31.cpp` is a step forward, temperature and humidity sensor with serial output.
 2. Build
 3. Upload
 
@@ -41,7 +41,7 @@
   - Relative Humidity (RH) range: 0-99.99%RH
   - Operating Temperature range: -40° to 125°C (-40° to 257°F)
   - RH response time: 8 seconds (tau63%)
-- Library: https://github.com/RobTillaart/SHT31
+- **Library**: https://github.com/RobTillaart/SHT31
 - https://github.com/espressif/arduino-esp32/issues/1395
   - **Needed additional 1k-ohm pull-up resistors**
 - https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/issues/62
