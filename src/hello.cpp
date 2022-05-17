@@ -36,7 +36,7 @@ void loop()
     while (cnt != -1) // infinite loop
     {
         // serial
-        sprintf(buffer, "%03d: %s %s", cnt++, "Hello", "World");
+        sprintf(buffer, "%03d: %s", cnt++, "Hello World");
         Serial.println(buffer);
 
         // display
