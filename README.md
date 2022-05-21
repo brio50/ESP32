@@ -10,6 +10,7 @@
    - `./src/main.cpp` is the example provided by [m1k0s](https://github.com/m1k0s) @ [ESP32-HelloWorld3D](https://github.com/m1k0s/ESP32-HelloWorld3D)
    - `./src/hello.cpp` is a step backward, just a simple serial and display hello world to get my bearings.
    - `./src/sht31.cpp` is a step forward, temperature and humidity sensor with serial output.
+   - `./src/sht31-d.cpp` adds u8g2 display output to `sht31.cpp`
 2. Build
 3. Upload
 
