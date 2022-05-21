@@ -1,6 +1,6 @@
 #include <Wire.h>
 #include <SHT31.h>
-#include <U8x8lib.h>
+#include <U8g2lib.h>
 
 #define SHT31_ADDRESS 0x44
 int t, dt, error;
@@ -11,9 +11,9 @@ uint32_t stop;
 uint32_t fails = 0;
 SHT31 sht;
 
-U8X8_SSD1306_128X64_NONAME_SW_I2C u8x8(/* clock=*/OLED_CLOCK, /* data=*/OLED_DATA, /* reset=*/OLED_RESET);
+U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2(U8G2_R0, /* clock=*/OLED_CLOCK, /* data=*/OLED_DATA, /* reset=*/OLED_RESET);
 
-void setup()
+void setup(void)
 {
     // sensor
     Wire.begin();
@@ -30,14 +30,15 @@ void setup()
     Serial.println(status, HEX);
 
     // display
-    u8x8.begin();
-    u8x8.setFont(u8x8_font_chroma48medium8_r);
+    u8g2.begin();
+    u8g2.enableUTF8Print();
 }
 
-void loop()
+void loop(void)
 {
-
-    char buffer[200], debug[100], sensor[100];
+    char debug[100];
+    char temp[50], humid[50], sensor[100];
+    char buffer[200];
 
     t = millis(); // microsecond
 
@@ -51,14 +52,16 @@ void loop()
         status = sht.readStatus();
 
         sprintf(debug, "[%08i ms] t_read = %i ms , error = %i , status = %02X , ", t, dt, error, status);
-        strcat(buffer, debug);
+        strcpy(buffer, debug); // copy
 
         C = sht.getTemperature(); // celsius
         F = sht.getFahrenheit();  // fahrenheit
         H = sht.getHumidity();    // %
 
-        sprintf(sensor, "T = %.2f °C (%.2f °F) , H = %.2f %%", C, F, H);
-        strcat(buffer, sensor);
+        sprintf(temp, "T = %.2f °C (%.2f °F)", C, F);
+        sprintf(humid, "H = %.2f %%", H);
+        sprintf(sensor, "%s , %s", temp, humid);
+        strcat(buffer, sensor); // append
     }
     else
     {
@@ -71,7 +74,12 @@ void loop()
     Serial.println(buffer);
 
     // display
-    u8x8.drawString(0, 0, sensor);
+    u8g2.clearBuffer();
+    u8g2.setContrast(100);
+    u8g2.setFont(u8g2_font_helvR08_tf);
+    u8g2.drawUTF8(0, 10, temp);
+    u8g2.drawUTF8(0, 22, humid);
+    u8g2.sendBuffer();
 
     // 1000 ms = 1 sec
     delay(1000);

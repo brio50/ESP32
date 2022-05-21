@@ -32,7 +32,8 @@
 
 - https://robotzero.one/heltec-wifi-kit-32/
 - [u8g2 library](https://github.com/olikraus/u8g2)
-  - https://github.com/olikraus/u8g2/wiki/u8g2setupcpp#introduction
+  - [c++ introduction](https://github.com/olikraus/u8g2/wiki/u8g2setupcpp#introduction)
+  - [full buffer vs page buffer](https://github.com/olikraus/u8g2/wiki/setup_tutorial#u8g2-full-buffer--page-buffer-and-u8x8-mode)
 
 ### Sensor
 
@@ -45,5 +46,5 @@
 - **Library**: https://github.com/RobTillaart/SHT31
 - https://github.com/espressif/arduino-esp32/issues/1395
   - **Needed additional 1k-ohm pull-up resistors**
-- https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/issues/62
-  - `SDA=4`, `SCL=15`
+- https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/issues/62#issuecomment-449690785
+  - I had to switch I2C sensor inputs to pins `SDA=4` and `SCL=15` when using the Arduino IDE, however in Platform IO IDE pins `SDA=21`, `SCL=22` work!
