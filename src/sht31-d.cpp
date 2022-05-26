@@ -11,7 +11,7 @@ uint32_t stop;
 uint32_t fails = 0;
 SHT31 sht;
 
-U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2(U8G2_R0, /* clock=*/OLED_CLOCK, /* data=*/OLED_DATA, /* reset=*/OLED_RESET);
+U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2(U8G2_R2, /* clock=*/OLED_CLOCK, /* data=*/OLED_DATA, /* reset=*/OLED_RESET);
 
 void setup(void)
 {
@@ -31,6 +31,8 @@ void setup(void)
 
     // display
     u8g2.begin();
+    u8g2.clear();
+    u8g2.setFont(u8g2_font_helvR08_tf);
     u8g2.enableUTF8Print();
 }
 
@@ -75,8 +77,6 @@ void loop(void)
 
     // display
     u8g2.clearBuffer();
-    u8g2.setContrast(100);
-    u8g2.setFont(u8g2_font_helvR08_tf);
     u8g2.drawUTF8(0, 10, temp);
     u8g2.drawUTF8(0, 22, humid);
     u8g2.sendBuffer();
