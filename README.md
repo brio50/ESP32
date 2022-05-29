@@ -14,6 +14,8 @@
 2. Build
 3. Upload
 
+![](https://user-images.githubusercontent.com/12156/170900373-3bed94a0-c299-4927-aed1-b9afa4e5ccaf.mp4)
+
 ## Hardware References
 
 ### Heltec Kit 32 (ESP32)
@@ -21,6 +23,7 @@
 - https://heltec.org/project/wifi-kit-32/
 - https://resource.heltec.cn/download/WiFi_Kit_32/WIFI_Kit_32_pinoutDiagram_V2.pdf
   - `SDA=21`, `SCL=22`
+  - ![WIFI_Kit_32_pinoutDiagram_V2](https://user-images.githubusercontent.com/12156/171037611-bd17732e-420a-4890-98af-4e5cab34068c.png)
 
 > **NOTE**: With platform.io + vscode, the following installation instructions were _not_ necessary:
 >
@@ -44,7 +47,7 @@
   - Operating Temperature range: -40° to 125°C (-40° to 257°F)
   - RH response time: 8 seconds (tau63%)
 - **Library**: https://github.com/RobTillaart/SHT31
-- https://github.com/espressif/arduino-esp32/issues/1395
-  - **Needed additional 1k-ohm pull-up resistors**
+- [**Needed additional pull-up resistors**, used a pair of 1k-ohm on SDA and SCL](https://github.com/espressif/arduino-esp32/issues/1395#issuecomment-387771512)
+  - [Software Alternative to pull-up resistor?](https://www.upesy.com/blogs/tutorials/how-to-use-gpio-pins-of-esp32-with-arduino)
 - https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/issues/62#issuecomment-449690785
   - I had to switch I2C sensor inputs to pins `SDA=4` and `SCL=15` when using the Arduino IDE, however in Platform IO IDE pins `SDA=21`, `SCL=22` work!
