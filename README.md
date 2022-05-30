@@ -51,3 +51,12 @@
   - [Software Alternative to pull-up resistor?](https://www.upesy.com/blogs/tutorials/how-to-use-gpio-pins-of-esp32-with-arduino)
 - https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/issues/62#issuecomment-449690785
   - I had to switch I2C sensor inputs to pins `SDA=4` and `SCL=15` when using the Arduino IDE, however in Platform IO IDE pins `SDA=21`, `SCL=22` work!
+
+### Misc
+
+- [.webp github gist](https://gist.github.com/witmin/1edf926c2886d5c8d9b264d70baf7379)
+  - Could not get this to actually reduce the `.mp4` file size. Just dragged and dropped into `README.md` via github website, seems to store file in github object/cloud storage rather than in project (preferred)!
+
+```
+ffmpeg -i IMG_2409.mp4 -vcodec libwebp -filter:v fps=fps=source_fps -lossless 0 -compression_level 7 -q:v 70 -loop 0 -an -vsync passthrough output.webp
+```
