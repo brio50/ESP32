@@ -1,10 +1,12 @@
-# Heltec ESP32 Platform IO Development Environment
+# ESP32 Temperature/Humidity Monitor
+
+https://user-images.githubusercontent.com/12156/170900373-3bed94a0-c299-4927-aed1-b9afa4e5ccaf.mp4
+
+## Development
 
 - Inspired by https://github.com/m1k0s/ESP32-HelloWorld3D, fork broken with permission from project admin.
 - Assumes https://platformio.org/platformio-ide & VSCode installed
   - [Heltec ESP32 Dev-Boards](https://registry.platformio.org/libraries/heltecautomation/Heltec%20ESP32%20Dev-Boards) library not needed
-
-## Using
 
 1. Modify `platformio.ini`'s `src_filter` to execute the `*.cpp` of your choosing in the `/src` directory.
    - `./src/hello.cpp` is a step backward, just a simple serial and display hello world to get my bearings.
@@ -12,8 +14,6 @@
    - `./src/sht31-d.cpp` adds u8g2 display output to `sht31.cpp`
 2. Build
 3. Upload
-
-![](https://user-images.githubusercontent.com/12156/170900373-3bed94a0-c299-4927-aed1-b9afa4e5ccaf.mp4)
 
 ## Hardware References
 
